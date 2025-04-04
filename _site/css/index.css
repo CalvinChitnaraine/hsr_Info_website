@@ -1,0 +1,220 @@
+.character-card {
+    background-color: #FFD3EA;
+    border: 1px solid #ddd;
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+    max-width: 750px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.character-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.5em;
+}
+
+.character-card h2 {
+    font-size: 1.5em;
+    margin: 0.5em 0;
+}
+
+.character-card p {
+    font-size: 1em;
+    color: #555;
+}
+ 
+.character-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ol {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+nav .crumb {
+    display: inline-block;
+}
+
+nav .crumb + .crumb::before {
+    content: " > ";
+    padding: 0 5px;
+    color: #000;
+}
+
+body {
+    background-color: #E4D2BA;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.title-box {
+    background-color: #BACCE4;
+    color: #333;
+    text-align: center;
+    padding: 1em;
+    margin: 2em auto;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #333; 
+}
+
+.area-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2em;
+    text-align: center;
+}
+
+.area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.area h2 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.image-button {
+    display: inline-block;
+    background-color: #FFD3EA;
+    width: 278px;
+    height: 278px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.image-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.image-button:hover {
+    transform: scale(1.05);
+}
+
+#fetch-area-data {
+    padding: 10px 20px; /* Increase button size */
+    font-size: 16px; /* Make text slightly larger */
+    background-color: #ff54ac; /* Add a nice blue background color */
+    color: rgb(255, 255, 255); /* Change text color to white for contrast */
+    border: 2px solid #333; /* Remove default border */
+    border-radius: 8px; /* Add curved edges */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Add smooth hover effect */
+  }
+  
+  /* Hover effect */
+  #fetch-area-data:hover {
+    background-color: #ff0084; /* Darker pink on hover */
+  }
+  
+  /* Card Container */
+.card-container {
+    background-color: #ffe0f0; /* Light pink background similar to other cards */
+    border: 1px solid #ccc; /* Subtle border for separation */
+    border-radius: 10px; /* Rounded edges */
+    padding: 20px; /* Add space inside the card */
+    max-width: 750px; /* Limit card width */
+    margin: 20px auto; /* Center the card horizontally with some spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Align Button Inside Card */
+  .card-container button {
+    display: block; /* Ensure the button takes full width */
+    margin: 10px auto 0; /* Center the button within the card */
+  }
+  
+  #dynamic-content {
+    text-align: center; /* Center text horizontally */
+    display: flex; /* Enable Flexbox */
+    flex-direction: column; /* Arrange elements vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    min-height: 100px; /* Add minimum height to ensure proper spacing */
+  }
+
+/* Breadcrumb Card */
+.breadcrumb-card {
+    background-color: #ffe0f0; /* Light pink background (similar to other cards) */
+    border: 1px solid #ccc; /* Subtle border for separation */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px 15px; /* Add padding around the content */
+    display: inline-block; /* Adjust card width to fit the content */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-bottom: 20px; /* Add spacing below the card */
+  }
+  
+/* Breadcrumb Container */
+.breadcrumb {
+    font-size: 14px; /* Adjust font size for readability */
+    margin: 10px 0; /* Add spacing around the breadcrumbs */
+    color: #6c757d; /* Subtle gray color for text */
+  }
+  
+  /* Breadcrumb List */
+  .breadcrumb ol {
+    list-style: none; /* Remove default list styling */
+    display: flex;
+    gap: 5px; /* Add space between items */
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Breadcrumb Items */
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+    color: #6c757d; /* Subtle gray for non-links */
+  }
+  
+  .breadcrumb li a {
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Use blue for links */
+  }
+  
+  .breadcrumb li a:hover {
+    text-decoration: underline; /* Add underline on hover */
+  }
+  
+  /* Separator */
+  .breadcrumb li::after {
+    content: "›"; /* Add a simple separator */
+    margin: 0 5px;
+    color: #6c757d; /* Use gray for the separator */
+  }
+  
+  .breadcrumb li:last-child::after {
+    content: ""; /* Remove separator for the last item */
+  }
+  
+  .breadcrumb li:last-child {
+    color: #495057; /* Darker gray for the current page */
+    font-weight: bold; /* Highlight the current page */
+  }
+  
+  /* Area Select Card */
+.area-select-card {
+    background-color: #ffe0f0; /* Light pink background for consistency */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 8px; /* Rounded edges */
+    padding: 20px; /* Add padding inside the card */
+    max-width: 600px; /* Limit the width of the card */
+    margin: 20px auto; /* Center the card and add spacing */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }

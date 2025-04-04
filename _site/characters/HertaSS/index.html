@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <title>Herta Space Station Characters</title>
+    <link href="/css/index.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="breadcrumb-card">
+      <nav class="breadcrumb">
+        <ol>
+          <li class="crumb"><a href="/">Area Select</a></li>
+          
+            <li class="crumb">Herta Space Station Characters</li>
+          
+        </ol>
+      </nav>
+    </div>
+
+    <header>
+      <div class="title-box">
+        <h1>Herta Space Station Characters</h1>
+      </div>
+    </header>
+
+    <main>
+        
+<section class="character-container">
+  
+    <div class="character-card">
+      <!-- Display Character Name -->
+      <h2>Arlan</h2>
+      
+      <!-- Display Character Image if Available -->
+      
+        <img src="http://localhost:2368/content/images/2024/12/image_2024-12-09_055847782.png" alt="Image of Arlan">
+      
+      
+      <!-- Display Character Description -->
+      <p>The head of Herta Space Station&#39;s Security Department.
+This quiet boy hopes to protect the researchers who value their pursuit of knowledge, and to help them to complete their work.</p>
+      
+      <!-- Link to Full Character Page -->
+      <a href="http://localhost:2368/arlan/">Read more about Arlan</a>
+    </div>
+  
+    <div class="character-card">
+      <!-- Display Character Name -->
+      <h2>Asta</h2>
+      
+      <!-- Display Character Image if Available -->
+      
+        <img src="http://localhost:2368/content/images/2024/12/image_2024-12-09_055808503.png" alt="Image of Asta">
+      
+      
+      <!-- Display Character Description -->
+      <p>The lead researcher of Herta Space Station and a lady from a renowned family.
+She&#39;s an astronomer overflowing with curiosity, and excels at managing the disparate staff of the space station.</p>
+      
+      <!-- Link to Full Character Page -->
+      <a href="http://localhost:2368/asta/">Read more about Asta</a>
+    </div>
+  
+    <div class="character-card">
+      <!-- Display Character Name -->
+      <h2>Herta</h2>
+      
+      <!-- Display Character Image if Available -->
+      
+        <img src="http://localhost:2368/content/images/2024/12/image_2024-12-09_055308637.png" alt="Image of Herta">
+      
+      
+      <!-- Display Character Description -->
+      <p>Esteemed Genius Society #83, human, female, young, beautiful, attractive.
+It&#39;s said that she lives in the far edge of the Cosmos, almost never leaving. Sounds like her appearance this time...
+It must be for some issue that requires a personal touch, right?</p>
+      
+      <!-- Link to Full Character Page -->
+      <a href="http://localhost:2368/herta/">Read more about Herta</a>
+    </div>
+  
+</section>
+    </main>
+
+    <!-- Single button to fetch data for the current area -->
+    <div id="info-card" class="card-container">
+      
+        <button id="fetch-area-data" data-area="herta_space_station">Fetch Data for Area</button>
+      
+      <div id="dynamic-content">
+        <h2>Additional Information About Area:</h2>
+        <p id="lore"></p>
+      </div>
+    </div>
+
+    <script>     
+      const state = {}; // State object to store fetched data
+
+      async function fetchData(tag) {
+        const button = document.getElementById("fetch-area-data");
+        const loreElement = document.getElementById("lore");
+
+        // Check if data for this area is already in the state
+        if (state[tag]) {
+          console.log(`Using cached data for ${tag}`);
+          loreElement.innerText = state[tag]; // Use cached data
+          return;
+        }
+
+        // Disable the button while fetching
+        button.disabled = true;
+        loreElement.innerText = "Loading...";
+
+        try {
+          const response = await fetch(`http://localhost:3000/api/${tag}`);
+          if (!response.ok) {
+            throw new Error(`Server responded with status ${response.status}`);
+          }
+
+          const data = await response.json();
+
+          // Store the fetched data in the state
+          state[tag] = data.message;
+
+          // Display the fetched data
+          loreElement.innerText = data.message;
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          loreElement.innerText = "Failed to fetch data. Please try again.";
+        } finally {
+          // Re-enable the button after fetching is complete
+          button.disabled = false;
+        }
+      }
+
+      // Attach the event listener to the button
+      document.getElementById("fetch-area-data").addEventListener("click", function () {
+        const area = this.getAttribute("data-area"); // Get the area from the button's data attribute
+        fetchData(area); // Call fetchData with the area
+      });
+    </script>
+  </body>
+</html>

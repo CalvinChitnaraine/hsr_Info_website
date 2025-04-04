@@ -1,0 +1,25 @@
+---
+title: "Herta Space Station Characters"
+layout: layout.html
+permalink: "characters/hertass/"
+---
+
+<section class="character-container">
+  {% for character in HertaSSCharacters %}
+    <div class="character-card">
+      <!-- Display Character Name -->
+      <h2>{{ character.title }}</h2>
+      
+      <!-- Display Character Image if Available -->
+      {% if character.feature_image %}
+        <img src="{{ character.feature_image }}" alt="Image of {{ character.title }}">
+      {% endif %}
+      
+      <!-- Display Character Description -->
+      <p>{{ character.excerpt }}</p>
+      
+      <!-- Link to Full Character Page -->
+      <a href="{{ character.url }}">Read more about {{ character.title }}</a>
+    </div>
+  {% endfor %}
+</section>

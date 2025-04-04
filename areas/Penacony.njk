@@ -1,0 +1,25 @@
+---
+title: "Penacony Characters"
+layout: layout.html
+permalink: "characters/penacony/"
+---
+
+<section class="character-container">
+  {% for character in PenaconyCharacters %}
+    <div class="character-card">
+      <!-- Display Character Name -->
+      <h2>{{ character.title }}</h2>
+      
+      <!-- Display Character Image if Available -->
+      {% if character.feature_image %}
+        <img src="{{ character.feature_image }}" alt="Image of {{ character.title }}">
+      {% endif %}
+      
+      <!-- Display Character Description -->
+      <p>{{ character.excerpt }}</p>
+      
+      <!-- Link to Full Character Page -->
+      <a href="{{ character.url }}">Read more about {{ character.title }}</a>
+    </div>
+  {% endfor %}
+</section>
